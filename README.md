@@ -31,6 +31,22 @@ Flutter and Android Studio(for emulator) should be installed on your system.
 
 ##### It is a simple application built just to check how flutter works,as you scroll down the screen new words are generated and can be added to the list of favorites which are tracked and can be viewed later. 
 
+
+## Sample Code
+![alt text](https://github.com/sarnesh444/Flutter/blob/master/Flutter/notes/code.JPG)
+
+## Sample Output
+![alt text](https://github.com/sarnesh444/Flutter/blob/master/Flutter/notes/entire.JPG)
+
+
+# Screens
+
+## Main Screen
+![alt text](https://github.com/sarnesh444/Flutter/blob/master/Flutter/notes/main_screen.JPG)
+
+## Favorites Screen
+![alt text](https://github.com/sarnesh444/Flutter/blob/master/Flutter/notes/fav_screen.JPG)
+
 ## Try it out...
 
 1. [Clone](https://github.com/sarnesh444/Flutter.git) this repo and try it out I am sure you would not regret learning flutter.
