@@ -1,0 +1,6 @@
+1. flutter create [project_name] - creates the project
+
+2. flutter doctor - checks if all the dependencies have been installed 
+
+3. flutter run - detects the connected device and runs the build on it
+
