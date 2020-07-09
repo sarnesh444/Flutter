@@ -1,0 +1,178 @@
+1.to install a package
+
+go to pub.dev
+search for the package
+add it to dependencies in the pubspec.yaml file under the project dir
+
+
+
+
+2."import 'package:english_words/english_words.dart';" - importing the downloaded package specified in pubspec.yaml
+
+
+
+
+3."RandomWordsState createState() => RandomWordsState();" - creating the state for the RandomWordsState class
+
+
+
+
+4."final _randomWordPairs =<WordPair>[];" - creates a list
+
+
+final works like const in js
+_randomWordPairs - var name
+<WordPair> - type of the list
+
+
+5."final _savedWordPairs = Set<WordPair>();" -creates a set
+
+set allows only unique vals
+<WordPair> - datatype of set
+
+
+
+6."Widget _buildList()" 
+
+custom widget
+Widget - means it returns a widget
+_buildList() - name of the custom widget
+
+
+
+7."ListView.builder" - returns a list view
+
+has parameter itemBuilder
+
+
+
+8."_randomWordPairs.length" - gives the len of the list
+
+
+9."_randomWordPairs.addAll(generateWordPairs().take(10));"
+
+
+addAll - works like append,adds the items to the list
+generateWordPairs() - built in method of imported pkg
+
+
+
+10."final alreadysaved = _savedWordPairs.contains(pair);"
+
+checking if the pair passed as param is already in the set _savedWordPairs
+
+
+
+
+11."ListTile(title: Text(pair.asPascalCase,style: TextStyle(fontSize: 18.0),),"
+
+is used to generate the tile/row of the list view 
+asPascalCase works like capitalize 
+TextStyle - built in widget to set the style of the text
+
+
+
+
+
+12."trailing: Icon(alreadysaved ? Icons.favorite : Icons.favorite_border,color: alreadysaved ? Colors.red : null,),"
+
+if the word is already saved in set _savedWordPairs gives red color else null
+
+
+
+
+13."onTap: (){
+        setState(() {
+          if(alreadysaved){
+            _savedWordPairs.remove(pair);
+          }
+          else{
+            _savedWordPairs.add(pair);
+          }
+        });
+      },"
+
+
+onTap - attribute of the list tile 
+if the word is already saved in set _savedWordPairs removes it from the list since we dont want duplicates else adds it 
+
+
+
+
+14."void _pushSaved()"  - user def function
+
+
+15."Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context){
+          final Iterable<ListTile> tiles =
+           _savedWordPairs.map((WordPair pair) {
+              return ListTile(
+                title: Text(pair.asPascalCase,
+                style: TextStyle(fontSize: 16.0),),
+              );
+          });
+          final List<Widget> divided = ListTile.divideTiles(
+            context: context,
+            tiles: tiles
+          ).toList();"
+
+
+Navigator - built in function helps navigate from one screen to other
+MaterialPageRoute - helps specify route
+final Iterable<ListTile> tiles - iterable of type ListTile
+final List<Widget> divided  - list of type widget
+ListTile.divideTiles - built in divides the tiles 
+tiles: tiles  - 1st tiles is the attr to be passed to ListTile.divideTiles and the 2nd tiles is the iterable created in the prev step
+
+
+
+
+16.Scaffold- Scaffold is a class in flutter which provides many widgets or we can say APIs like Drawer, SnackBar, BottomNavigationBar, FloatingActionButton, AppBar etc.
+
+Scaffold will expand or occupy in the whole device screen. It will occupy the available space. Scaffold will provide a framework to implement the basic material design layout of the application.
+
+"Scaffold(
+            appBar: AppBar(title: Text("Saved WordPairs")),
+            body: ListView(children: divided),
+          );"
+
+
+appBar: AppBar(title: Text("Saved WordPairs")), - generates an app bar with the text Saved WordPairs
+
+appBar - attr
+AppBar - widget
+title - attr
+Text - widget
+
+
+body: ListView(children: divided),
+
+body - attr
+ListView - widget
+divided - list of widget type listtile
+
+
+
+
+
+17."Widget build(BuildContext context){
+    return Scaffold( appBar: AppBar(
+      title: Text("WordPair Generator"),
+      actions: <Widget>[
+        IconButton(
+        icon: Icon(Icons.list),
+        onPressed: _pushSaved,),
+      ],
+    ),
+    body: _buildList(),
+    );
+  }"
+
+
+actions - attr
+<Widget>[]  - list of widgets
+IconButton - widget to display icon
+icon: Icon(Icons.list)  - generates a list icon
+onPressed: _pushSaved - when clicked on the tile calls the _pushSaved user def method
+

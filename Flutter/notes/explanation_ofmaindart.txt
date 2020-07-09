@@ -1,0 +1,29 @@
+1."void main() => runApp(MyApp());"
+used to run the MyApp class ,main is the first thing to be executed, runApp() used to execute the app predefined function
+
+
+
+2. @override
+"Widget build(BuildContext context)"
+
+custom widget
+
+Widget- returns a material app widget
+
+build - method that is being overriden
+
+
+
+3."theme: ThemeData(primaryColor: Colors.pink[200]),"
+
+defines the theme of the app
+
+
+
+4."home: RandomWords()"
+
+for the home section it creates an instance of the RandomWords() class
+
+
+
+"import './random_words.dart';"  - importing the file random_words.dart from the prev dir
